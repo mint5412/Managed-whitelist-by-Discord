@@ -1,0 +1,4 @@
+name: RelateDiscord
+version: '${project.version}'
+main: com.github.mint5412.relatediscord.RelateDiscord
+api-version: 1.19
