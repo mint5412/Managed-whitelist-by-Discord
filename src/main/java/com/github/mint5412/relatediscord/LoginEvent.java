@@ -15,7 +15,11 @@ public class LoginEvent implements Listener {
     @EventHandler
     public void PlayerJoinEvent(PlayerJoinEvent e){
         Player player = e.getPlayer();
-        if (Bukkit.getServer().getWhitelistedPlayers().contains(player)) return;
+        if (player.isWhitelisted()) {
+            Bukkit.getServer().reloadWhitelist();
+            if (!player.isWhitelisted()) player.setWhitelisted(true);
+            return;
+        }
         YMLManager manager = new YMLManager("./PlayerTokens.yml");
 
         for (Map.Entry<String, Object> map : manager.getValues(false).entrySet()) {
