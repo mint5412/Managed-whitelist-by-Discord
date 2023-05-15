@@ -45,6 +45,7 @@ public final class RelateDiscord extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+        this.bot.shutdownNow();
     }
 
     private void LoadToken() {
